@@ -25,7 +25,21 @@ switch (true) do
 	{
 		execVM "client\systems\adminPanel\checkAdmin.sqf";
 	};
+	
+	// AltGr key
+	case (_key == 184):
+	{
+		_veh = vehicle player;
 
+		if (alive player && _veh != player) then
+		{
+			if (_veh isKindOf 'Air') then
+			{
+				[[], fn_emergencyEject] execFSM "call.fsm";
+			};
+		};
+	};
+	
 	// Tilde (key above Tab)
 	case (_key in A3W_customKeys_playerMenu):
 	{

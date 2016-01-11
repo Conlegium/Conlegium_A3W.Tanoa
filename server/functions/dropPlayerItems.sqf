@@ -55,7 +55,7 @@ if (_items isEqualTo []) then
 
 	for "_i" from 1 to _qty do
 	{
-		_obj = createVehicle [_type, _targetPos, [], 1, "CAN_COLLIDE"];
+		_obj = createVehicle [_type, _targetPos, [], 2, "CAN_COLLIDE"];
 		_obj setDir random 360;
 		_obj setVariable ["mf_item_id", _id, true];
 		_obj call A3W_fnc_setItemCleanup;

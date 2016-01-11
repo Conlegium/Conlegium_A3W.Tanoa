@@ -65,6 +65,13 @@ _successExec =
 {
 	// Mission completed
 	[_vehicle, 1] call A3W_fnc_setLockState; // Unlock
+	
+	//spawn MissionReward
+		_reward = createVehicle ["Land_File2_F", _lastPos, [], 5, "None"];
+		_reward setPos ([_lastPos, [[0.1 + random 0.5,0,0], random 360] call BIS_fnc_rotateVector2D] call BIS_fnc_vectorAdd);
+		_reward setDir random 360;
+		_reward setVariable ["mf_item_id", "missionreward", true];
+		_reward setVariable ["owner", "world", true];
 
 	_successHintMessage = "The truck has been captured, well done.";
 };

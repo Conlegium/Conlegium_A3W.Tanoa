@@ -18,7 +18,7 @@
 [_this, "campfire"] call mf_init;
 [_this, "bankbook"] call mf_init;
 //[_this, "extinguisher"] call mf_init;
-[_this, "animalcatching"] call mf_init;
+//[_this, "animalcatching"] call mf_init;
 [_this, "missionreward"] call mf_init;
 [_this, "missionrewardexchange"] call mf_init;
 

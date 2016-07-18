@@ -19,6 +19,26 @@ player createDiarySubject ["credits", "Credits"];
 
 player createDiaryRecord ["changelog",
 [
+"IOCI_v1.3b",
+"
+<br/>[Added] Campfire
+<br/>[Added] Bankbook
+<br/>[Added] GameGift
+<br/>[Added] mission Infantry Group
+<br/>[Added] mission Weapon Deal
+<br/>[Added] missions Assassin(s)
+<br/>[Added] missions Hostile Plane(s)
+<br/>[Added] mission-reward including the needing exchange device
+<br/>[Added] fast emergency-eject (AltGr-Key)
+<br/>[Changed] start-gear (each playerside)
+<br/>[Changed] mission-hints
+<br/>[Changed] increased player item drop radius
+<br/>[Deleted] kicked worthless nazi-texture
+"
+]];
+
+player createDiaryRecord ["changelog",
+[
 "v1.3b",
 "
 <br/>[Added] Private parking
@@ -400,6 +420,9 @@ player createDiaryRecord ["credits",
 [
 "Credits",
 "
+<br/><font size='16' color='#BBBBBB'>Developed by Conlegium:</font>
+<br/>	* Randleman (Conlegium)
+<br/>
 <br/><font size='16' color='#BBBBBB'>Developed by A3Wasteland.com:</font>
 <br/>	* AgentRev (TeamPlayerGaming)
 <br/>	* JoSchaap (GoT/Tweakers.net)
@@ -502,6 +525,7 @@ player createDiaryRecord ["infos",
 <br/>" + AKEYNAME("GetOver") + " (open parachute)
 <br/>Shift + " + NKEYNAME(201) + " / " + NKEYNAME(209) + " (adjust nightvision)
 <br/>" + NKEYNAME(22) + " (admin menu)
+<br/>" + NKEYNAME(184) + " (quick emergency eject)
 "
 ]];
 

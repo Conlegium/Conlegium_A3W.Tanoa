@@ -4,7 +4,7 @@
 //	@file Name: playerSetupGear.sqf
 //	@file Author: [GoT] JoSchaap, AgentRev
 
-private ["_player", "_uniform", "_vest", "_headgear", "_goggles"];
+private ["_player", "_uniform", "_vest", "_headgear", "_goggles", "_backpack"];
 _player = _this;
 
 // Clothing is now defined in "client\functions\getDefaultClothing.sqf"
@@ -13,11 +13,13 @@ _uniform = [_player, "uniform"] call getDefaultClothing;
 _vest = [_player, "vest"] call getDefaultClothing;
 _headgear = [_player, "headgear"] call getDefaultClothing;
 _goggles = [_player, "goggles"] call getDefaultClothing;
+_backpack = [_player, "backpack"] call getDefaultClothing;
 
 if (_uniform != "") then { _player addUniform _uniform };
 if (_vest != "") then { _player addVest _vest };
 if (_headgear != "") then { _player addHeadgear _headgear };
 if (_goggles != "") then { _player addGoggles _goggles };
+if (_backpack != "") then { _player addBackpack _backpack };
 
 sleep 0.1;
 
@@ -30,18 +32,39 @@ _player unlinkItem "ItemGPS";
 // Remove NVG
 if (hmd _player != "") then { _player unlinkItem hmd _player };
 
-// Add NVG
-_player linkItem "NVGoggles";
+// Add NVG each playerside
+switch (playerSide) do
+{
+	case BLUFOR:
+	{
+		_player linkItem "NVGogglesB_blk_F";
+	};
+	case OPFOR:
+	{
+		_player linkItem "O_NVGoggles_hex_F";
+	};
+	default
+	{
+		_player linkItem "NVGogglesB_grn_F";
+	};
+};
+//_player addBackpack "B_AssaultPack_rgr"; // is now defined in "client\functions\getDefaultClothing.sqf"
 
-_player addBackpack "B_AssaultPack_rgr";
-
+_player addMagazine "30Rnd_65x39_caseless_green";
+_player addWeapon "arifle_Katiba_F";
+_player addPrimaryWeaponItem "optic_Hamr";
+_player addPrimaryWeaponItem "acc_flashlight";
+_player addMagazine "30Rnd_65x39_caseless_green";
+_player addMagazine "30Rnd_65x39_caseless_green";
+_player addMagazine "30Rnd_65x39_caseless_green";
 _player addMagazine "9Rnd_45ACP_Mag";
 _player addWeapon "hgun_ACPC2_F";
 _player addMagazine "9Rnd_45ACP_Mag";
 _player addMagazine "9Rnd_45ACP_Mag";
 _player addMagazine "9Rnd_45ACP_Mag";
 _player addItem "FirstAidKit";
-_player selectWeapon "hgun_ACPC2_F";
+_player selectWeapon "arifle_Katiba_F";
+_player	addWeapon "Binocular";
 
 switch (true) do
 {
